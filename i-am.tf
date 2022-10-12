@@ -1,7 +1,7 @@
 resource "aws_iam_policy" "read-only-secret" {
-  name        = "allow-read-only-secret"
+  name        = "${var.COMPONENT}-allow-read-only-secret"
   path        = "/"
-  description = "allow-read-only-secret"
+  description = "${var.COMPONENT}-allow-read-only-secret"
 
   policy = jsonencode({
     "Version": "2012-10-17",
@@ -31,7 +31,7 @@ resource "aws_iam_policy" "read-only-secret" {
 }
 
 resource "aws_iam_role" "role-for-access-secrets" {
-  name = "role-for-access-secrets"
+  name = "${var.COMPONENT}-role-for-access-secrets"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -58,6 +58,6 @@ resource "aws_iam_role_policy_attachment" "attach-policy" {
 }
 
 resource "aws_iam_instance_profile" "secrets" {
-  name = "Roboshop-Rabbitmq-Secretmanager-readaccess-${var.ENV}"
+  name = "${var.COMPONENT}-Roboshop-Rabbitmq-Secretmanager-readaccess-${var.ENV}"
   role = aws_iam_role.role-for-access-secrets.name
 }
