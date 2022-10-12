@@ -14,6 +14,7 @@ resource "aws_spot_instance_request" "main" {
 }
 
 resource "aws_ec2_tag" "main" {
+  count       = var.INSTANCE_COUNT
   resource_id = aws_spot_instance_request.main.*.spot_instance_id[count.index]
   key         = "Name"
   value       = local.TAG_PREFIX
