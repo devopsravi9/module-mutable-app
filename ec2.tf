@@ -35,7 +35,7 @@ resource "null_resource" "ansible" {
       "git clone https://github.com/devopsravi9/roboshop-ansible.git",
       "cd /home/centos/roboshop-ansible/ansible",
       "git pull",
-      "ansible-playbook robo.yml -e HOST=localhost -e ROLE=${var.COMPONENT} -e ENV=${var.ENV} -e DOCDB_ENDPOINT=${var.DOCDB_ENDPOINT} -e REDDIS_ENDPOINT=${var.REDDIS_ENDPOINT}  -e RDS_ENDPOINT=${var.RDS_ENDPOINT}",
+      "ansible-playbook robo.yml -e HOST=localhost -e ROLE=${var.COMPONENT} -e ENV=${var.ENV} -e DOCDB_ENDPOINT=${var.DOCDB_ENDPOINT} -e REDDIS_ENDPOINT=${var.REDDIS_ENDPOINT}  -e RDS_ENDPOINT=${var.MYSQL_ENDPOINT}",
     ]
 
   }
