@@ -33,3 +33,31 @@ resource "aws_lb_listener" "frontend" {
     target_group_arn = aws_lb_target_group.main-tg.arn
   }
 }
+
+resource "aws_lb_listener_rule" "static" {
+  count             = var.COMPONENT != "frontend" ? 1 : 0
+  listener_arn      = var.PRIVATE_LB_ARN
+  priority          = random_integer.priority.id
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.main-tg.arn
+  }
+
+  condition {
+    path_pattern {
+      values = ["/static/*"]
+    }
+  }
+
+  condition {
+    host_header {
+      values = ["${var.ENV}-${var.COMPONENT}.roboshop.internal"]
+    }
+  }
+}
+
+resource "random_integer" "priority" {
+  min = 1
+  max = 50000
+}

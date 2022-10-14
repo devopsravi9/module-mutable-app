@@ -9,4 +9,5 @@ variable "PRIVATE_SUBNET_CIDR" {}
 variable "WORKSTATION_IP" {}
 variable "PRIVATE_LB_ARN" {}
 variable "PUBLIC_LB_ARN" {}
+variable "PRIVATE_ZONE_ID" {}
 
