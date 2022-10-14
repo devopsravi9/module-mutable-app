@@ -37,17 +37,11 @@ resource "aws_lb_listener" "frontend" {
 resource "aws_lb_listener_rule" "static" {
   count             = var.COMPONENT != "frontend" ? 1 : 0
   listener_arn      = var.PRIVATE_LISTNER_ARN
-  priority          = random_integer.priority.id
+  priority          = random_integer.priority.result
 
   action {
     type             = "forward"
     target_group_arn = aws_lb_target_group.main-tg.arn
-  }
-
-  condition {
-    path_pattern {
-      values = ["/static/*"]
-    }
   }
 
   condition {
