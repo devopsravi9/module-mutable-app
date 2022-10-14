@@ -19,3 +19,17 @@ resource "aws_lb_target_group_attachment" "main" {
   target_id        = aws_spot_instance_request.main.*.spot_instance_id[count.index]
   port             = var.APP_PORT
 }
+
+resource "aws_lb_listener" "frontend" {
+  count             = var.COMPONENT == "frontend" ? 1 : 0
+  load_balancer_arn = var.PUBLIC_LB_ARN
+  port              = "443"
+  protocol          = "HTTPS"
+  ssl_policy        = "ELBSecurityPolicy-2016-08"
+  certificate_arn   = "arn:aws:acm:us-east-1:041583668323:certificate/7421a91c-7f8f-41ee-8fc4-b190e3f8aad8"
+
+  default_action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.main-tg.arn
+  }
+}
