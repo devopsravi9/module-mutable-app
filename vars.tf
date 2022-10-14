@@ -12,4 +12,14 @@ variable "PRIVATE_ZONE_ID" {}
 variable "PRIVATE_LB_DNS" {}
 variable "PRIVATE_LISTNER_ARN" {}
 variable "ALLOW_SG_CIDR" {}
+variable "DOCDB_ENDPOINT" {
+  default = "null"
+}
+variable "REDDIS_ENDPOINT" {
+  default = "null"
+}
+variable "RDS_ENDPOINT" {
+  default = "null"
+}
+
 
