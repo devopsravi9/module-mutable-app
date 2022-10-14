@@ -10,7 +10,6 @@ variable "WORKSTATION_IP" {}
 variable "PRIVATE_LB_ARN" {}
 variable "PUBLIC_LB_ARN" {}
 variable "PRIVATE_ZONE_ID" {}
-variable "PRIBATE_LB_DNS" {}
 variable "PRIVATE_LB_DNS" {}
 variable "PRIVATE_LISTNER_ARN" {}
 
