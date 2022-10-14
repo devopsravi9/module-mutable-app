@@ -5,11 +5,11 @@ variable "APP_INSTANCE_CLASS" {}
 variable "PRIVATE_SUBNET_ID" {}
 variable "VPC_ID" {}
 variable "APP_PORT" {}
-variable "PRIVATE_SUBNET_CIDR" {}
 variable "WORKSTATION_IP" {}
 variable "PRIVATE_LB_ARN" {}
 variable "PUBLIC_LB_ARN" {}
 variable "PRIVATE_ZONE_ID" {}
 variable "PRIVATE_LB_DNS" {}
 variable "PRIVATE_LISTNER_ARN" {}
+variable "ALLOW_SG_CIDR" {}
 

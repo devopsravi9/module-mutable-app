@@ -34,6 +34,7 @@ resource "null_resource" "ansible" {
     inline = [
       "git clone https://github.com/devopsravi9/roboshop-ansible.git",
       "cd /home/centos/roboshop-ansible/ansible",
+      "git pull",
       "ansible-playbook robo.yml -e HOST=localhost -e ROLE=${var.COMPONENT} -e ENV=${var.ENV}",
     ]
 

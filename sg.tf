@@ -4,11 +4,11 @@ resource "aws_security_group" "main" {
   vpc_id      = var.VPC_ID
 
   ingress {
-    description      = "rabbitmq"
+    description      = "${var.COMPONENT}"
     from_port        = var.APP_PORT
     to_port          = var.APP_PORT
     protocol         = "tcp"
-    cidr_blocks      = var.PRIVATE_SUBNET_CIDR
+    cidr_blocks      = var.ALLOW_SG_CIDR
   }
 
   ingress {
