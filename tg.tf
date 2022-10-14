@@ -36,7 +36,7 @@ resource "aws_lb_listener" "frontend" {
 
 resource "aws_lb_listener_rule" "static" {
   count             = var.COMPONENT != "frontend" ? 1 : 0
-  listener_arn      = var.PRIVATE_LB_ARN
+  listener_arn      = aws_lb_listener.frontend.arn
   priority          = random_integer.priority.id
 
   action {

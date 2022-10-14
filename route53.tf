@@ -1,7 +1,7 @@
-resource "aws_route53_record" "www" {
+resource "aws_route53_record" "route" {
   zone_id = var.PRIVATE_ZONE_ID
   name    = "${var.ENV}-${var.COMPONENT}"
   type    = "CNAME"
-  ttl     = 300
-  records = [aws_lb_target_group.main-tg.arn]
+  ttl     = 30
+  records = [var.PRIVATE_LB_DNS]
 }
