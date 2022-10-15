@@ -6,6 +6,7 @@ variable "PRIVATE_SUBNET_ID" {}
 variable "VPC_ID" {}
 variable "APP_PORT" {}
 variable "WORKSTATION_IP" {}
+variable "PROMETHEUS_IP" {}
 variable "PRIVATE_LB_ARN" {}
 variable "PUBLIC_LB_ARN" {}
 variable "PRIVATE_ZONE_ID" {}
