@@ -20,7 +20,7 @@ resource "aws_ec2_tag" "main" {
   value       = local.TAG_PREFIX
 }
 
-resource "aws_ec2_tag" "main" {
+resource "aws_ec2_tag" "monitor-tag" {
   count       = var.INSTANCE_COUNT
   resource_id = aws_spot_instance_request.main.*.spot_instance_id[count.index]
   key         = "monitor"
